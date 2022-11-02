@@ -51,23 +51,35 @@ TIMESTAMP | 4 |  1970-01-01 00:00:01 至 2038-01-19 03: 14:07    |  YYYY-MM-DD H
 ## DDL
 - 查询
   - 查询所有数据库
- `SHOW DATABASES;`
+  
+  `SHOW DATABASES;`
   - 查询当前数据库
-`SELECT DATABAES;` 
-- 创建
-`CREATE DATABASE [IF NOT EXISTS] 数据库名 [DEFAULT CHARS£T 字符集 [ COLLATE 排序规则];`
-- 删除
-`DROP DATABASE [ IF EXISTS] 数据库名;`
-- 使用
-`USE 数据库名`
+  
+  `SELECT DATABAES;` 
+   - 创建
+
+   `CREATE DATABASE [IF NOT EXISTS] 数据库名 [DEFAULT CHARS£T 字符集 [ COLLATE 排序规则];`
+   - 删除
+
+    `DROP DATABASE [ IF EXISTS] 数据库名;`
+    - 使用
+
+    `USE 数据库名`
+
 --------------------------------------------------------------------------------------------------------------
 - DDL-表操作-查询
-  - 查询当前的数据库所用表
-  `SHOW TABLES`
-  - 查询表结构
- `DESC表名`
-  - 查询指定表的建表语句 
-`SHOW CREATE TABLE 表名`
+   - 查询当前的数据库所用表
+  
+    `SHOW TABLES`
+  
+   - 查询表结构
+ 
+   `DESC表名`
+ 
+   - 查询指定表的建表语句 
+
+    `SHOW CREATE TABLE 表名`
+
  -----------------------------------------------------------------------------------------------------------------
  - DDL-表操作-创建
 ```sql
@@ -81,14 +93,22 @@ gender varchar(1) comment'性别'
 ```
 - DDL-表操作-修改
   - **添加字段**
-  `ALTER TABLE 表名 ADD 字段名 类型 (长度) [COMMENT 注释] [约束];`
-  - 案例：为emp表增加一个新的字段" 昵称" 为nickname, 类型为varchar(20)
-  `ALTER TABLE emp ADD nickname varchar(20) COMMENT '昵称';`
-   - **修改数据类型**
+  
+   `ALTER TABLE 表名 ADD 字段名 类型 (长度) [COMMENT 注释] [约束];`
+ 
+   - 案例：为emp表增加一个新的字段" 昵称" 为nickname, 类型为varchar(20)
+  
+   `ALTER TABLE emp ADD nickname varchar(20) COMMENT '昵称';`
+ 
+    - **修改数据类型**
+   
    `ALTER TABLE 表名 MODIFY 字段名 新数据类型 (长度);`
-   - **修改字段名和字段类型**
+ 
+    - **修改字段名和字段类型**
+   
    `ALTER TABLE 表名 CHANGE 旧日字段名 新字段名 类型 (长度) [COMMENT 注释] [约束];`
    - 案例：将emp表的nickname字段修改为username, 类型为varchar(30)
+   
    `ALTER TABLE emp CHANGE nickname usernamevarchar(30) COMMENT ' 昵称';`
    - **删除字段**
 
