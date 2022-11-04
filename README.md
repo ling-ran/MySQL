@@ -155,7 +155,101 @@ gender varchar(1) comment'性别'
 > - 插入数据时, 指定的字段顺序需要与值的顺序是一一对应的
 > - 字符串和日期型数据应该包含在引号中
 > - 插入的数据大小, 应该在字段的规定范围内
+---------------------------------------------------------------------------------------------------------------------------------
+## DQL数据查询语言
+![执行顺序](https://img-blog.csdnimg.cn/f64446b8525042c888ce58348b63bf50.jpeg#pic_center)
 
+- DQL-基本查询
+  - 查询多个字段
+
+	`SELECT 字段1, 字段2, 字段3. FROM 表名` 
+    
+    `SELECT * FROM 表名;`
+
+  - 设置别名
+
+	`SELECT 字段1 [AS 别名1], 字段2 [AS 别名2]...FROM 表名;`                                                                             
+     
+  - 去除重复记录
+
+	`SELECT DISTINCT 字段列表 FROM 表名;` 
+
+- DQL-条件查询
+  -  语法：`SELECT 字段列表 FROM 表名 WHERE 条件列表;`
+  -   条件
+
+比较运算符 |  功能
+--------------- | --------
+\>               | 大于                                                                               
+\>=             |大于等于
+\<             |小于
+\<=           |小于等于
+=              |等于
+<>或！=  |不等于
+BETWEEN...AND... |在某个范围之内(含最小, 最大值)
+IN()         | 在in之后的列表中的值, 多选一
+LIKE 占位符 | 模糊 匹配("_"匹配单个字符, "%"匹配任意个字符)
+IS NULL |  是NULL
+
+逻辑运算符 | 功能
+---------------|---------
+AND或&& | 并且（多个条件任意一个成立）
+OR或\|\|    |或者（多个条件任意一个成立）
+NOT或！ |非，不是
+
+- 1. 查询年龄等于20的员工
+
+	`select * from emp where age = 88;`
+
+- 2.  查询年龄小于 20 的员工信息
+
+	`select * from emp where age < 20;`
+
+- 3. 查询年龄小于等于 20 的员工信息
+
+	`select * from emp where age <= 20;`
+
+- 4. 查询没有身份证号的员工信息
+
+	`select * from emp where idcard is null;`
+
+- 5. 查询有身份证号的员工信息
+
+  `select * from emp where idcard is not null;`
+
+- 6. 查询年龄不等于88的员工信息
+
+	`select from emp where age !=88;`
+
+	`select from emp where age <88;`
+	
+- 7. 查询年龄在15岁（包含）到20岁（包含）之间的员工信息
+
+	`select from emp where age >15 &age <20;`
+
+	`select from emp where age >=15 and age <=20;`
+
+	`select from emp where age between 15 and 20;`
+
+ - 8. 查询性别为女且年龄小于25岁的员工信息
+
+	`select from emp where gender =and age 25;`
+	
+- 9. 查询年龄等于18或20或40的员工信息
+
+	`select from emp where age 18 or age 20 or age =40;`
+	
+	`select from emp where age  in(18,20,40)`
+
+- 10. 查询姓名为两个字的员工信息_%
+
+	`select from emp where name like`
+
+- 11. 查询身份证号最后一位是X的员工信息
+
+	`select from emp where idcard like '%x';`
+	
+	`select from emp where idcard like'_________________x'`
 
 
 
