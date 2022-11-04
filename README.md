@@ -306,4 +306,4 @@ ALTER TABLE edu default charset=gbk
 - (1)添加约束
 ALTER TABLE edu ADD CONSTRAINT pk_id primary key(id);
 - (2)删除约束
-ALTER TABLE edu DROP FOREIGN KEY约束名；
+
