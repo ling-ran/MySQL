@@ -180,7 +180,7 @@ gender varchar(1) comment'性别'
 
 比较运算符 |  功能
 --------------- | --------
-\>               | 大于                                                                               
+\>              | 大于                                                                               
 \>=             |大于等于
 \<             |小于
 \<=           |小于等于
@@ -266,6 +266,39 @@ sum   | 求和
 - 3. `SELECT 聚类函数（字段列表）FROM 表名`
 >NULL值不参与所有聚类函数运算
 
+- 聚类函数
+  - 1. 统计该企业员工数量
+
+	`select count(*) from emp;`
+
+	`select count(idcard) from emp;`
+
+  - 2. 统计该企业员工的平均年龄
+
+	`select avg(age)from emp;`
+
+  - 3. 统计该企业员工的最大年龄
+
+	`select max(age)from emp;`
+
+  - 4. 统计该企业员工的最小年龄
+
+	`select min(age)from emp;`
+
+  - 5. 统计西安地区员工的年龄之和
+
+	`select sum(age) from emp where workaddress = '西安';` 
+
+----------------------------------------------------------------------------------------------------------------------------
+- DQL-分组查询
+
+  - 1. `SELECT字段列表FROM表名[WHERE条件]GROUP BY分组字段名[HAVING分组后过滤条件];`
+
+  - 2. where与having区别
+
+		执行时机不同：where:是分组之前进行过滤，不满足where条件，不参与分组；而having:是分组之后对结果进行过滤
+
+		判断条件不同：where不能对聚合函数进行判断，而having可以          
 
 
 
